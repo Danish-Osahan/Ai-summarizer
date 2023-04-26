@@ -1,1 +1,1 @@
-  <img src="/client/src/assets/demo.jpeg" width="300" height="300" alt="notfound">
+  <img src="/client/src/assets/demo.jpeg" width="800" height="800" alt="notfound">
