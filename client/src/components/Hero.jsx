@@ -1,24 +1,31 @@
 import React from 'react'
 import { logo } from "../assets";
+import { useNavigate } from 'react-router-dom';
 import AOS from "aos";
 import "aos/dist/aos.css";
 AOS.init();
 const Hero = () => {
+  const navigate=useNavigate();
+  const logout=()=>{
+    localStorage.removeItem('token')
+    navigate('/signin');
+  }
   return (
-    <header className='w-full flex justify-center items-center flex-col'>
+    <header className='w-full  flex justify-center items-center flex-col mb-2'>
       <nav className='flex justify-between items-center w-full mb-10 pt-3' data-aos="fade-left"
           data-aos-duration="1000">
         <img src={logo} alt='sumz_logo' className='w-28 object-contain' />
 
         <button
           type='button'
-          onClick={() =>
-            window.open("https://github.com/Danish-Osahan/Ai-summarizer", "_blank")
+          onClick={
+            logout
           }
-          className='black_btn'
+          className='black_btn flex justify-center items-center text-center'
         >
-          GitHub
+          Logout
         </button>
+        
       </nav>
 
       <h1 className='head_text' data-aos="flip-left"

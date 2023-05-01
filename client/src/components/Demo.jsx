@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-
 import { copy, linkIcon, loader, tick } from "../assets";
 import { useLazyGetSummaryQuery } from "../services/article";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom";
+
+import Hero from "./Hero";
 AOS.init();
 const Demo = () => {
+  const navigate=useNavigate();
   const [article, setArticle] = useState({
     url: "",
     summary: "",
@@ -21,9 +22,13 @@ const Demo = () => {
     const articlesFromLocalStorage = JSON.parse(
       localStorage.getItem("articles")
     );
+    const user = JSON.parse(localStorage.getItem("token"));
 
     if (articlesFromLocalStorage) {
       setAllArticles(articlesFromLocalStorage);
+    }
+    if (!user) {
+      navigate('/signin');
     }
   }, []);
   const handleSubmit = async (e) => {
@@ -58,7 +63,8 @@ const Demo = () => {
     }
   };
   return (
-    <section className="mt-16 w-full max-w-xl">
+    <section className="mt-4 w-full max-w-xl">
+      <Hero />
       {/* search section */}
       <div className="flex flex-col w-full gap-2">
         <form
@@ -134,16 +140,12 @@ const Demo = () => {
           </p>
         ) : (
           article.summary && (
-            <div className="flex flex-col gap-3" data-aos="fade-up">
+            <div className="flex flex-col gap-3">
               <h2 className="font-satoshi font-bold text-gray-600 text-xl">
                 Article <span className="blue_gradient">Summary</span>
               </h2>
               <div className="summary_box">
-                <p
-                  className="font-inter font-medium text-sm text-gray-700"
-                  data-aos="fade-up-right"
-                  data-aos-duration="1000"
-                >
+                <p className="font-inter font-medium text-sm text-gray-700">
                   {article.summary}
                 </p>
               </div>
