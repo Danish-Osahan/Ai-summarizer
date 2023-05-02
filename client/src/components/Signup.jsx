@@ -9,7 +9,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 AOS.init();
 const Signup = ({ user }) => {
-  const baseurl = "http://localhost:8080/api/users";
+  // const baseurl = "http://localhost:8080/api/users";
+  const baseurl = "https://aisumz-server.onrender.com/api/users";
   const navigate = useNavigate();
   const [formdata, setFormData] = useState({
     firstname: "",
