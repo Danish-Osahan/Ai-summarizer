@@ -17,7 +17,7 @@ const Home = ({user}) => {
     },[])
   return (
     <>
-      <div className=" flex justify-center  flex-col items-center ">
+      <div className="flex justify-center  flex-col items-center ">
         <img
           data-aos="fade-up"
           data-aos-duration="1000"

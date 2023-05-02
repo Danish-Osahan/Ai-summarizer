@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { copy, linkIcon, loader, tick } from "../assets";
 import { useLazyGetSummaryQuery } from "../services/article";
 import { useNavigate } from "react-router-dom";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Hero from "./Hero";
 AOS.init();
 const Demo = () => {

@@ -18,7 +18,7 @@ app.get('/',(req,res)=>{
 })
 // Authentication Routes
 app.use('/api/users',userRoutes)
-app.use('/api/users',userRoutes)
+// app.use('/api/users',userRoutes)
 
 
 const startServer=async()=>{
