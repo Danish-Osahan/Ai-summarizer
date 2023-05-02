@@ -29,9 +29,10 @@ const Login = ({ user }) => {
             },
           }
         );
-        localStorage.setItem("token", JSON.stringify(response.data.token));
+        localStorage.setItem("token", JSON.stringify(response?.data?.token));
+        localStorage.setItem("Username", JSON.stringify(response?.data?.result?.name));
         navigate("/main");
-        console.log("User token :-" + response.data.token);
+        console.log( response?.data?.result);
         
       } catch (error) {
         console.log(error?.response?.data?.message);
