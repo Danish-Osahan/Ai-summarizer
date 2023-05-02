@@ -11,9 +11,9 @@ const Hero = () => {
     navigate("/signin");
   };
 
-  let username = JSON.parse(localStorage.getItem("Username")).toString();
-  let index = username.indexOf(" ");
-  username = username.substring(0, index);
+  let username =localStorage.getItem("Username").split(" ")[0];
+  // let index = username.indexOf(" ");
+  // username = username.substring(0, index);
 
 
   return (
