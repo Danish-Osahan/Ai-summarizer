@@ -10,10 +10,10 @@ const Hero = () => {
     localStorage.removeItem("token");
     navigate("/signin");
   };
-  
+
   let username = JSON.parse(localStorage.getItem("Username"));
-  let index = username.indexOf(" ");
-  username = username.substring(0, index);
+  // let index = username.indexOf(" ");
+  // username = username.substring(0, index);
 
 
   return (
@@ -35,7 +35,7 @@ const Hero = () => {
       </nav>
 
       <h1 className="head_text" data-aos="flip-left" data-aos-duration="1000">
-        {`Welcome ${username} ready to use `}
+        {`Welcome ${username.split(" ")[0]} ready to use `}
         <br className="max-md:hidden" />
         <span className="orange_gradient ">Sumz-AI</span>
       </h1>
